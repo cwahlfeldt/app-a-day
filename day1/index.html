@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fairly - Repeat-Aware Group Maker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Small utility, big relief</p>
+          <h1>Fairly</h1>
+          <p class="subtitle">
+            A repeat-aware group maker that keeps pairings fresh without making you
+            babysit a spreadsheet.
+          </p>
+        </div>
+        <div class="hero-card">
+          <h2>Why this exists</h2>
+          <p>
+            Classes, volunteer teams, and standing meetings all need fresh groups,
+            but most randomizers forget who met last time. Fairly remembers pairings
+            locally, so you can rotate people with less repetition.
+          </p>
+        </div>
+      </header>
+
+      <section class="panel grid">
+        <div class="card">
+          <div class="card-title">
+            <h2>Participants</h2>
+            <span id="nameCount" class="pill">0 names</span>
+          </div>
+          <label class="label" for="names">One name per line</label>
+          <textarea
+            id="names"
+            placeholder="Avery\nJordan\nRiley\nSamira"
+            rows="10"
+          ></textarea>
+          <div class="inline">
+            <div>
+              <label class="label" for="groupSize">Target group size</label>
+              <input id="groupSize" type="number" min="2" max="20" value="4" />
+            </div>
+            <div>
+              <label class="label" for="iterations">Search depth</label>
+              <input id="iterations" type="number" min="50" max="1000" value="350" />
+            </div>
+          </div>
+          <label class="checkbox">
+            <input id="balance" type="checkbox" checked />
+            Balance group sizes
+          </label>
+          <label class="checkbox">
+            <input id="avoidRepeats" type="checkbox" checked />
+            Avoid repeat pairings using local history
+          </label>
+          <div class="actions">
+            <button id="generate" class="primary">Generate groups</button>
+            <button id="clear" class="ghost">Reset</button>
+          </div>
+          <p id="status" class="status"></p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <h2>Results</h2>
+            <span id="groupCount" class="pill">0 groups</span>
+          </div>
+          <div id="results" class="results empty">
+            <p>Groups will appear here.</p>
+          </div>
+          <div class="actions">
+            <button id="copy" class="ghost" disabled>Copy groups</button>
+            <button id="save" class="primary" disabled>Save this round</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="card history">
+          <div>
+            <h2>History</h2>
+            <p class="muted">
+              Pairing history is stored only in this browser. Clear it when you want
+              a fresh start.
+            </p>
+          </div>
+          <div class="history-stats">
+            <div>
+              <span class="label">Sessions saved</span>
+              <strong id="sessionCount">0</strong>
+            </div>
+            <div>
+              <span class="label">Stored pairings</span>
+              <strong id="pairCount">0</strong>
+            </div>
+            <div>
+              <span class="label">Last saved</span>
+              <strong id="lastSaved">Never</strong>
+            </div>
+          </div>
+          <button id="clearHistory" class="ghost danger">Clear history</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Made for quick rotations, classrooms, and teams on the go.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

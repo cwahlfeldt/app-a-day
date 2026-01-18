@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TrialGuard - Free Trial Reminder Builder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero__copy">
+        <p class="eyebrow">No more surprise charges</p>
+        <h1>TrialGuard</h1>
+        <p class="lead">Build a one-click calendar reminder to cancel free trials before they renew.</p>
+        <div class="hero__tags">
+          <span>Local-only</span>
+          <span>ICS download</span>
+          <span>30 seconds</span>
+        </div>
+      </div>
+      <div class="hero__panel">
+        <div class="panel__inner">
+          <p class="panel__title">How it helps</p>
+          <p class="panel__text">Pick a start date, the trial length, and how early you want a reminder. TrialGuard calculates the exact cancel-by moment and generates a calendar file you can add to any device.</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="card" aria-labelledby="form-title">
+        <h2 id="form-title">Trial details</h2>
+        <form id="trial-form" autocomplete="off">
+          <label for="service">Service name</label>
+          <input id="service" name="service" type="text" placeholder="Spotify, Figma, Storytel">
+
+          <label for="start-date">Trial start date</label>
+          <div class="field-row">
+            <input id="start-date" name="start-date" type="date" required>
+            <button class="chip" type="button" id="today-btn">Today</button>
+          </div>
+
+          <label for="trial-length">Trial length</label>
+          <div class="field-row">
+            <input id="trial-length" name="trial-length" type="number" min="1" value="7">
+            <span class="field-row__unit">days</span>
+          </div>
+
+          <label for="lead-days">Remind me</label>
+          <div class="field-row">
+            <input id="lead-days" name="lead-days" type="number" min="0" value="1">
+            <span class="field-row__unit">days before</span>
+          </div>
+
+          <label for="reminder-time">Reminder time</label>
+          <input id="reminder-time" name="reminder-time" type="time" value="09:00">
+
+          <label for="note">Optional note</label>
+          <textarea id="note" name="note" rows="3" placeholder="Billing link, cancellation steps, or customer support info."></textarea>
+        </form>
+      </section>
+
+      <section class="card card--accent" aria-labelledby="result-title">
+        <h2 id="result-title">Your reminder</h2>
+        <div class="result">
+          <div class="result__item">
+            <span>Trial ends</span>
+            <strong id="end-date">--</strong>
+          </div>
+          <div class="result__item">
+            <span>Cancel by</span>
+            <strong id="cancel-date">--</strong>
+          </div>
+          <div class="result__item">
+            <span>Reminder fires</span>
+            <strong id="reminder-date">--</strong>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="download-ics" class="btn" type="button" disabled>Download reminder (.ics)</button>
+          <button id="copy-summary" class="btn ghost" type="button" disabled>Copy summary</button>
+        </div>
+        <p id="warning" class="warning" role="status" aria-live="polite"></p>
+        <p class="hint">Everything stays in your browser. No accounts. No tracking.</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Tip: Add the reminder to your calendar the moment you start the trial.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
