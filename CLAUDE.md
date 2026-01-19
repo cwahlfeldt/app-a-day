@@ -17,6 +17,7 @@ Each `dayN/` folder contains an independent web app:
 - day1: **Fairly** - Repeat-aware group maker with local history
 - day2: **TrialGuard** - Free trial reminder builder with ICS export
 - day3: **Round Robin Mixer** - Multi-round group generator minimizing repeat pairings
+- day4: **Return Window Tracker** - Return deadline tracker with calendar export
 
 ## Running Apps
 

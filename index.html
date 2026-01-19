@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>App-a-Day Index</title>
+    <meta name="description" content="Navigation for the app-a-day series." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f4f1ec;
+        --bg-strong: #efe7dc;
+        --ink: #1b1a18;
+        --muted: #5c5650;
+        --accent: #2f6d5f;
+        --accent-soft: rgba(47, 109, 95, 0.12);
+        --card: #fffaf2;
+        --border: #e1d7c8;
+        --shadow: 0 22px 50px rgba(40, 32, 24, 0.15);
+        --radius: 22px;
+        --font-display: "Space Grotesk", sans-serif;
+        --font-body: "Work Sans", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: var(--font-body);
+        color: var(--ink);
+        background: radial-gradient(circle at 10% 15%, rgba(47, 109, 95, 0.2), transparent 45%),
+          radial-gradient(circle at 85% 85%, rgba(231, 166, 73, 0.2), transparent 45%),
+          linear-gradient(120deg, var(--bg), var(--bg-strong));
+        min-height: 100vh;
+      }
+
+      .backdrop {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.4;
+        background-image: radial-gradient(rgba(91, 80, 63, 0.12) 1px, transparent 1px);
+        background-size: 18px 18px;
+        z-index: 0;
+      }
+
+      .page {
+        position: relative;
+        z-index: 1;
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 48px 24px 60px;
+      }
+
+      header {
+        display: grid;
+        gap: 16px;
+        margin-bottom: 32px;
+        animation: rise 0.8s ease both;
+      }
+
+      h1 {
+        font-family: var(--font-display);
+        font-size: clamp(2.2rem, 4vw, 3.4rem);
+        margin: 0;
+        letter-spacing: -0.5px;
+      }
+
+      .subtitle {
+        margin: 0;
+        max-width: 50ch;
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+      }
+
+      .card {
+        text-decoration: none;
+        color: inherit;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 20px;
+        box-shadow: var(--shadow);
+        display: grid;
+        gap: 10px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        animation: rise 0.8s ease both;
+      }
+
+      .card:nth-child(2) {
+        animation-delay: 0.05s;
+      }
+
+      .card:nth-child(3) {
+        animation-delay: 0.1s;
+      }
+
+      .card:nth-child(4) {
+        animation-delay: 0.15s;
+      }
+
+      .card:nth-child(5) {
+        animation-delay: 0.2s;
+      }
+
+      .card:nth-child(6) {
+        animation-delay: 0.25s;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 28px 55px rgba(40, 32, 24, 0.18);
+      }
+
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: var(--accent);
+        margin: 0;
+      }
+
+      .card h2 {
+        font-family: var(--font-display);
+        font-size: 1.4rem;
+        margin: 0;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+
+      footer {
+        margin-top: 32px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 720px) {
+        .page {
+          padding: 36px 18px 48px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="backdrop"></div>
+    <div class="page">
+      <header>
+        <p class="eyebrow">App-a-Day</p>
+        <h1>Daily micro-tools, one click away.</h1>
+        <p class="subtitle">
+          A growing set of offline-first utilities. Pick a day to open the app.
+        </p>
+      </header>
+
+      <main class="grid">
+        <a class="card" href="day1/index.html">
+          <p class="eyebrow">Day 1</p>
+          <h2>Fairly</h2>
+          <p>Repeat-aware group maker for balanced pairings.</p>
+          <span class="chip">Group builder</span>
+        </a>
+        <a class="card" href="day2/index.html">
+          <p class="eyebrow">Day 2</p>
+          <h2>TrialGuard</h2>
+          <p>Free trial reminder builder with a clean exit plan.</p>
+          <span class="chip">Reminders</span>
+        </a>
+        <a class="card" href="day3/index.html">
+          <p class="eyebrow">Day 3</p>
+          <h2>Round Robin Mixer</h2>
+          <p>Fast group rotations with fewer repeats.</p>
+          <span class="chip">Team rotations</span>
+        </a>
+        <a class="card" href="day4/index.html">
+          <p class="eyebrow">Day 4</p>
+          <h2>Return Window Tracker</h2>
+          <p>Find the last day to return an order instantly.</p>
+          <span class="chip">Time and date</span>
+        </a>
+        <a class="card" href="day5/index.html">
+          <p class="eyebrow">Day 5</p>
+          <h2>Blocksmith</h2>
+          <p>Turn tasks into a time-blocked schedule.</p>
+          <span class="chip">Planning</span>
+        </a>
+        <a class="card" href="day6/index.html">
+          <p class="eyebrow">Day 6</p>
+          <h2>PackPilot</h2>
+          <p>Trip type plus days, and you are ready to pack.</p>
+          <span class="chip">Packing list</span>
+        </a>
+      </main>
+
+      <footer>
+        Each app runs locally in the browser and keeps data on your device.
+      </footer>
+    </div>
+  </body>
+</html>

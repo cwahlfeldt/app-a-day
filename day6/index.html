@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PackPilot - Packing List Generator</title>
+    <meta
+      name="description"
+      content="Build a realistic packing list in two steps. Local-only, no accounts." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Figtree:wght@400;500;600;700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="backdrop"></div>
+    <div class="page">
+      <header class="hero">
+        <div class="hero-text">
+          <p class="eyebrow">Packing List Generator</p>
+          <h1>PackPilot</h1>
+          <p class="subtitle">
+            Two choices in, a smart checklist out. Pack faster without the
+            mental load.
+          </p>
+          <div class="hero-tags">
+            <span>Local only</span>
+            <span>Built-in checklists</span>
+            <span>Copy to notes</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h2>Why this is useful</h2>
+          <p>
+            Packing is usually guesswork. PackPilot turns a trip type and
+            duration into a list that is small, realistic, and easy to finish.
+          </p>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="panel input" aria-labelledby="input-title">
+          <div class="panel-header">
+            <h2 id="input-title">Trip details</h2>
+            <span class="stat" id="itemCount">0 items</span>
+          </div>
+          <form id="plannerForm" autocomplete="off">
+            <label class="field">
+              <span>Trip type</span>
+              <select id="tripType">
+                <option value="city">City break</option>
+                <option value="beach">Beach getaway</option>
+                <option value="business">Business trip</option>
+                <option value="camping">Camping</option>
+                <option value="winter">Cold weather</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Duration</span>
+              <div class="inline-inputs">
+                <input id="tripDays" type="number" min="1" max="30" value="4" />
+                <span class="unit">days</span>
+                <label class="toggle">
+                  <input id="laundryToggle" type="checkbox" />
+                  <span>Laundry access</span>
+                </label>
+              </div>
+            </label>
+            <div class="field">
+              <span>Extras</span>
+              <div class="chip-group">
+                <label class="chip">
+                  <input type="checkbox" name="extras" value="work" />
+                  <span>Work tech</span>
+                </label>
+                <label class="chip">
+                  <input type="checkbox" name="extras" value="fitness" />
+                  <span>Workout gear</span>
+                </label>
+                <label class="chip">
+                  <input type="checkbox" name="extras" value="kids" />
+                  <span>Kids items</span>
+                </label>
+                <label class="chip">
+                  <input type="checkbox" name="extras" value="photo" />
+                  <span>Camera kit</span>
+                </label>
+              </div>
+            </div>
+            <div class="field">
+              <span>Add a custom item</span>
+              <div class="inline-inputs">
+                <input
+                  id="customItem"
+                  type="text"
+                  placeholder="e.g., Baby formula, notebook"
+                  maxlength="48" />
+                <button class="chip" id="addItem" type="button">Add</button>
+              </div>
+              <small>Custom items stay in your list until you remove them.</small>
+            </div>
+            <div class="actions">
+              <button class="primary" id="generateBtn" type="submit">
+                Generate list
+              </button>
+              <button class="ghost" id="clearBtn" type="button">
+                Clear checks
+              </button>
+            </div>
+            <p class="helper">Everything stays in your browser.</p>
+          </form>
+        </section>
+
+        <section class="panel output" aria-labelledby="output-title">
+          <div class="panel-header">
+            <h2 id="output-title">Checklist</h2>
+            <div class="output-actions">
+              <button class="ghost" id="copyBtn" type="button" disabled>
+                Copy list
+              </button>
+            </div>
+          </div>
+          <div class="summary">
+            <div class="summary-card">
+              <span>Trip type</span>
+              <strong id="summaryType">City break</strong>
+            </div>
+            <div class="summary-card">
+              <span>Days</span>
+              <strong id="summaryDays">4</strong>
+            </div>
+            <div class="summary-card">
+              <span>Items</span>
+              <strong id="summaryCount">0</strong>
+            </div>
+          </div>
+          <div class="results" id="results" aria-live="polite">
+            <div class="empty">
+              <p>No list yet.</p>
+              <span>Select your trip details to build a checklist.</span>
+            </div>
+          </div>
+          <p class="status" id="status" role="status" aria-live="polite"></p>
+        </section>
+      </main>
+
+      <footer class="foot">
+        <p>
+          Tip: If you are unsure, start with the default list and trim from
+          there.
+        </p>
+      </footer>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

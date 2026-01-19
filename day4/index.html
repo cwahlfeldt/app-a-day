@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Return Window Tracker</title>
+    <meta
+      name="description"
+      content="Track return deadlines and export calendar reminders." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="backdrop"></div>
+    <div class="page">
+      <header class="hero">
+        <p class="eyebrow">Return Window Tracker</p>
+        <h1>Never miss a return deadline again.</h1>
+        <p class="subtitle">
+          Drop in purchase dates, set the return window, and export calendar
+          reminders before the clock runs out.
+        </p>
+      </header>
+      <main class="layout">
+        <section class="panel input">
+          <div class="panel-header">
+            <h2>Add a return</h2>
+            <span class="stat" id="entryCount">0 tracked</span>
+          </div>
+          <form id="entryForm" autocomplete="off">
+            <label class="field">
+              <span>Item (optional)</span>
+              <input
+                type="text"
+                id="item"
+                placeholder="Canvas jacket, blender, headphones" />
+            </label>
+            <label class="field">
+              <span>Store or brand (optional)</span>
+              <input type="text" id="store" placeholder="Northwind Outfitters" />
+            </label>
+            <div class="field-row">
+              <label class="field">
+                <span>Purchase date</span>
+                <input type="date" id="purchaseDate" required />
+              </label>
+              <label class="field">
+                <span>Return window (days)</span>
+                <input
+                  type="number"
+                  id="windowDays"
+                  min="1"
+                  max="180"
+                  value="30"
+                  required />
+                <small>30 = 30 days after purchase</small>
+              </label>
+            </div>
+            <div class="actions">
+              <button class="primary" type="submit">Add to tracker</button>
+              <button class="ghost" id="sampleBtn" type="button">
+                Use sample
+              </button>
+              <button class="ghost" id="clearBtn" type="button">
+                Clear all
+              </button>
+            </div>
+            <p class="error" id="error" role="alert"></p>
+            <p class="helper">Everything stays in your browser.</p>
+          </form>
+        </section>
+        <section class="panel output">
+          <div class="panel-header">
+            <h2>Tracked deadlines</h2>
+            <div class="output-actions">
+              <button class="ghost" id="copyBtn" type="button" disabled>
+                Copy summary
+              </button>
+              <button class="ghost" id="icsBtn" type="button" disabled>
+                Export calendar
+              </button>
+            </div>
+          </div>
+          <div class="summary" id="summary">
+            <div class="summary-card">
+              <span>Items tracked</span>
+              <strong id="totalCount">0</strong>
+            </div>
+            <div class="summary-card">
+              <span>Due within 7 days</span>
+              <strong id="soonCount">0</strong>
+            </div>
+            <div class="summary-card">
+              <span>Overdue</span>
+              <strong id="overdueCount">0</strong>
+            </div>
+          </div>
+          <div class="list" id="list" aria-live="polite">
+            <div class="empty">
+              <p>No returns yet.</p>
+              <span>Add your first purchase to start tracking.</span>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="foot">
+        <p>
+          Tip: Keep your return window short and set an early calendar reminder
+          before shipping or drop-off days.
+        </p>
+      </footer>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
