@@ -38,7 +38,7 @@ Enter total available time and list of tasks. Distributes time proportionally or
 
 ## Text & Content Tools
 
-**Word/Character Counter**
+**Word/Character Counter**  
 Paste text, see word count, character count (with/without spaces), sentence count, paragraph count, reading time estimate. Highlights if over common limits (Twitter, meta descriptions).
 
 **Lorem Generator**
