@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Timebridge - Meeting Time Zone Converter</title>
+    <meta
+      name="description"
+      content="Convert a meeting time across multiple time zones in one view." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Syne:wght@600;700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="backdrop"></div>
+    <div class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Meeting Time Zone Converter</p>
+          <h1>Timebridge</h1>
+          <p class="subtitle">
+            Set a meeting time once and share the correct local times instantly.
+          </p>
+          <div class="hero-tags">
+            <span>Local-only</span>
+            <span>2-4 zones</span>
+            <span>Copy summary</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h2>Why it helps</h2>
+          <p>
+            Scheduling across cities usually means bouncing between apps. Timebridge
+            keeps the meeting time anchored and shows everyone their local time at
+            a glance.
+          </p>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="panel">
+          <h2>Meeting details</h2>
+          <form class="form" autocomplete="off">
+            <label for="meeting-date">Meeting date</label>
+            <div class="field-row">
+              <input id="meeting-date" type="date" required />
+              <button class="chip" type="button" id="now-btn">Now</button>
+            </div>
+
+            <label for="meeting-time">Meeting time</label>
+            <input id="meeting-time" type="time" required />
+
+            <label for="source-zone">Meeting time zone</label>
+            <select id="source-zone"></select>
+          </form>
+
+          <div class="divider"></div>
+
+          <div class="zone-section">
+            <div>
+              <h3>Compare with</h3>
+              <p class="muted">Pick up to four time zones to compare.</p>
+            </div>
+            <div id="zone-list" class="zone-list"></div>
+            <button id="add-zone" class="ghost" type="button">
+              Add time zone
+            </button>
+          </div>
+        </section>
+
+        <section class="panel results">
+          <div class="results-head">
+            <div>
+              <h2>Converted times</h2>
+              <p id="summary" class="summary">
+                Select a date and time to see conversions.
+              </p>
+            </div>
+            <button id="copy-summary" class="primary" type="button" disabled>
+              Copy summary
+            </button>
+          </div>
+          <div id="results-grid" class="results-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
